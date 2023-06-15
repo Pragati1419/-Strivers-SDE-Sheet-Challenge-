@@ -1,0 +1,21 @@
+class Solution
+{
+    public:
+    void fun(Node* root, Node*& pre, Node*& suc, int key){
+        if(root==NULL)
+        return;
+        fun(root->left,pre,suc,key);
+        if(root->key<key){
+            pre=root;
+        }
+        if(key < root->key && !suc){
+            suc=root;
+        }
+        fun(root->right,pre,suc,key);
+    }
+    void findPreSuc(Node* root, Node*& pre, Node*& suc, int key)
+    {
+        // Your code goes here
+        fun(root,pre,suc,key);
+    }
+};
