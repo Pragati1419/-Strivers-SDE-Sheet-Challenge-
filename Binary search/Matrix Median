@@ -1,0 +1,14 @@
+int Solution::findMedian(vector<vector<int> > &A) {
+   int n=A.size();
+int m=A[0].size();
+priority_queue<int> pq;
+for(int i=0;i<n;i++){
+for(int j=0;j<m;j++){
+pq.push(A[i][j]);
+if(pq.size() > ((n*m+1)/2)){
+pq.pop();
+}
+}
+}
+return pq.top() ;
+}
